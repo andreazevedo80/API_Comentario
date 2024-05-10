@@ -7,11 +7,12 @@ pipeline {
     stages{
         stage('Build da Imagem Docker'){
             steps {
-                sh 'docker build -t $(DOCKER_IMAGE)'
+                sh 'docker build -t ${DOCKER_IMAGE} .'
             }
         }
         stage ('sleep para subida do conatiner'){
             steps{
+                echo 'Esperando 60 segundos antes de subir o container...'
                 sh 'sleep 60'
             }
         }
