@@ -7,12 +7,14 @@ pipeline {
     stages{
         stage('Build da Imagem Docker'){
             steps {
-                script {
-                    docker.build(DOCKER_IMAGE)
-                } 
+                sh 'docker build -t $(DOCKER_IMAGE)'
             }
         }
-
+        stage ('sleep para subida do conatiner'){
+            steps{
+                sh 'sleep 60'
+            }
+        }
         stage('Executar SonarQube'){
             steps{
                 script{
