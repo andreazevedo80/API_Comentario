@@ -22,7 +22,7 @@ pipeline {
                     scannerHome = tool 'sonar-scanner';
                 }
                 withSonarQubeEnv('sonar-server'){
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=. -Dsonar.host.url=$(env.SONAR_HOST_URL) -Dsonar.login=$(env.SONAR_AUTH_TOKEN)"
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=API_Comentario -Dsonar.sources=. -Dsonar.host.url=$(env.SONAR_HOST_URL) -Dsonar.login=$(env.SONAR_AUTH_TOKEN)"
                 }
             }
         }
