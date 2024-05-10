@@ -1,12 +1,9 @@
 pipeline {
     agent any
-
     environment {
         DOCKER_IMAGE = 'devops/app'
         NEXUS_IMAGE = "${NEXUS_URL}/devops/app"
-        SONAR_PROJECT_KEY = 'API_Comentario'
     }
-
     stages{
         stage('Build da Imagem Docker'){
             steps {
@@ -53,4 +50,5 @@ pipeline {
                 sh '/usr/local/bin/kubectl aaply -f ./k3s/app.yaml'
             }
         }
+    }
 }
