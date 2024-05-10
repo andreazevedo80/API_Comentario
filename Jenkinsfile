@@ -9,10 +9,10 @@ pipeline {
                 sh 'docker build -t ${DOCKER_IMAGE} .'
             }
         }
-        stage ('Tempo para subida do conatiner'){
+        stage ('Tempo para subida do container'){
             steps{
-                echo 'Esperando 10 segundos para subir o container...'
-                sh 'sleep 10'
+                echo 'Esperando 20 segundos para subir o container...'
+                sh 'sleep 20'
             }
         }
         stage('Executar SonarQube'){
@@ -25,7 +25,12 @@ pipeline {
                 }
             }
         }
-        
+         stage ('Tempo para subida do container'){
+            steps{
+                echo 'Esperando 20 segundos para subir o container...'
+                sh 'sleep 20'
+            }
+        }       
         stage('Fazer Upload da Imagem docker para o Nexus'){
             steps{
                 script{
@@ -35,6 +40,12 @@ pipeline {
                         sh 'docker push ${NEXUS_URL}/devops/app'
                     }
                 }
+            }
+        }
+        stage ('Tempo para subida do container'){
+            steps{
+                echo 'Esperando 20 segundos para subir o container...'
+                sh 'sleep 20'
             }
         }
         stage('Apply k8s files'){
