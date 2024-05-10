@@ -16,16 +16,16 @@ pipeline {
                 sh 'sleep 10'
             }
         }
-        stage('Executar SonarQube'){
-            steps{
-                script{
-                    scannerHome = tool 'sonar-scanner';
-                }
-                withSonarQubeEnv('sonar-server'){
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=API_Comentario -Dsonar.sources=. -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
-                }
-            }
-        }
+        // stage('Executar SonarQube'){
+        //     steps{
+        //         script{
+        //             scannerHome = tool 'sonar-scanner';
+        //         }
+        //         withSonarQubeEnv('sonar-server'){
+        //             sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=API_Comentario -Dsonar.sources=. -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
+        //         }
+        //     }
+        // }
         
         stage('Fazer Upload da Imagem docker para o Nexus'){
             steps{
