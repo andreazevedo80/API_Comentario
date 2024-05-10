@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = 'devops/app'
-        NEXUS_IMAGE = "${NEXUS_URL}/devops/app"
+        // NEXUS_IMAGE = "${NEXUS_URL}/devops/app"
     }
     stages{
         // stage('Build da Imagem Docker'){
