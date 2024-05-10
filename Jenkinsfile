@@ -10,10 +10,10 @@ pipeline {
                 sh 'docker build -t ${DOCKER_IMAGE} .'
             }
         }
-        stage ('sleep para subida do conatiner'){
+        stage ('sTempo para subida do conatiner'){
             steps{
-                echo 'Esperando 60 segundos antes de subir o container...'
-                sh 'sleep 60'
+                echo 'Esperando 10 segundos para subir o container...'
+                sh 'sleep 10'
             }
         }
         stage('Executar SonarQube'){
