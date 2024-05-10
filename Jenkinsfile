@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = 'devops/app'
-        // NEXUS_IMAGE = "${NEXUS_URL}/devops/app"
     }
     stages{
         // stage('Build da Imagem Docker'){
@@ -27,19 +26,17 @@ pipeline {
         //     }
         // }
         
-        stage('Fazer Upload da Imagem docker para o Nexus'){
-            steps{
-                script{
-                    withCredentials([usernamePassword(credentialsId: 'nexus-user', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD' )]){
-                        sh 'docker login -u $USERNAME -p $PASSWORD ${NEXUS_URL}'
-                        sh 'docker tag devops/app:latest ${NEXUS_URL}/devops/app'
-                        // sh 'docker tag ${DOCKER_IMAGE}:latest ${NEXUS_IMAGE}'
-                        sh 'docker push ${NEXUS_URL}/devops/app'
-                        // sh 'docker push ${NEXUS_IMAGE}:latest'
-                    }
-                }
-            }
-        }
+        // stage('Fazer Upload da Imagem docker para o Nexus'){
+        //     steps{
+        //         script{
+        //             withCredentials([usernamePassword(credentialsId: 'nexus-user', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD' )]){
+        //                 sh 'docker login -u $USERNAME -p $PASSWORD ${NEXUS_URL}'
+        //                 sh 'docker tag devops/app:latest ${NEXUS_URL}/devops/app'
+        //                 sh 'docker push ${NEXUS_URL}/devops/app'
+        //             }
+        //         }
+        //     }
+        // }
         stage('Apply k8s files'){
             steps{
                 sh '/usr/local/bin/kubectl apply -f ./k3s/app.yaml'
