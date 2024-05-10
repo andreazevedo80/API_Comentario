@@ -39,7 +39,7 @@ pipeline {
         // }
         stage('Apply k8s files'){
             steps{
-                sh '/usr/local/bin/kubectl apply -f ./k3s/app.yaml'
+                sh '/usr/local/bin/kubectl apply -f ./k3s/app.yaml --validate=false'
             }
         }
     }
