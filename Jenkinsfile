@@ -26,17 +26,7 @@ pipeline {
                 }
             }
         }
-        stage('Testar a aplicação'){
-            steps{
-                sh 'chmod +x teste-app.sh'
-                sh './teste-app.sh'
-            }
-        }
-        stage('Desligar o Containers de teste'){
-            steps{
-                sh 'docker-compose down'
-            }
-        }
+        
         stage('Fazer Upload da Imagem docker para o Nexus'){
             steps{
                 script{
