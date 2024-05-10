@@ -39,8 +39,6 @@ pipeline {
         // }
         stage('Apply k8s files'){
             steps{
-                sh sudo usermod -s /bin/bash jenkins
-                sh sudo su - jenkins
                 sh '/usr/local/bin/kubectl apply -f ./k3s/app.yaml'
             }
         }
