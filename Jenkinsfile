@@ -10,7 +10,7 @@ pipeline {
                 sh 'docker build -t ${DOCKER_IMAGE} .'
             }
         }
-        stage ('sTempo para subida do conatiner'){
+        stage ('Tempo para subida do conatiner'){
             steps{
                 echo 'Esperando 10 segundos para subir o container...'
                 sh 'sleep 10'
@@ -40,7 +40,7 @@ pipeline {
         }
         stage('Apply k8s files'){
             steps{
-                sh '/usr/local/bin/kubectl aaply -f ./k3s/app.yaml'
+                sh '/usr/local/bin/kubectl apply -f ./k3s/app.yaml'
             }
         }
     }
