@@ -5,17 +5,17 @@ pipeline {
         NEXUS_IMAGE = "${NEXUS_URL}/devops/app"
     }
     stages{
-        stage('Build da Imagem Docker'){
-            steps {
-                sh 'docker build -t ${DOCKER_IMAGE} .'
-            }
-        }
-        stage ('Tempo para subida do conatiner'){
-            steps{
-                echo 'Esperando 10 segundos para subir o container...'
-                sh 'sleep 10'
-            }
-        }
+        // stage('Build da Imagem Docker'){
+        //     steps {
+        //         sh 'docker build -t ${DOCKER_IMAGE} .'
+        //     }
+        // }
+        // stage ('Tempo para subida do conatiner'){
+        //     steps{
+        //         echo 'Esperando 10 segundos para subir o container...'
+        //         sh 'sleep 10'
+        //     }
+        // }
         // stage('Executar SonarQube'){
         //     steps{
         //         script{
