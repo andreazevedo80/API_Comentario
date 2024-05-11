@@ -25,7 +25,7 @@ pipeline {
                 }
             }
         }
-         stage ('Tempo para subida do container'){
+         stage ('Tempo para Sonar'){
             steps{
                 echo 'Esperando 20 segundos para subir o container...'
                 sh 'sleep 20'
@@ -42,7 +42,7 @@ pipeline {
                 }
             }
         }
-        stage ('Tempo para subida do container'){
+        stage ('Tempo para Upload da Imagem'){
             steps{
                 echo 'Esperando 20 segundos para subir o container...'
                 sh 'sleep 20'
